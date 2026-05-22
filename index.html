@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header id="main-header">
+        <div class="header-container">
+            <h1>Agro Sustentável</h1>
+            <button id="toggle-dark-mode" aria-label="Alternar modo escuro">Ajustar Tema</button>
+        </div>
+    </header>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#introducao">O Conceito</a></li>
+            <li><a href="#biomas">Arquitetura de Biomas</a></li>
+            <li><a href="#quiz-section">Desafio Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        
+        <section id="introducao" class="content-section">
+            <h2>Equilíbrio entre Produção e Meio Ambiente</h2>
+            <div class="grid-content">
+                <p>O futuro da agricultura mundial depende da nossa capacidade de produzir alimentos em harmonia com as forças da natureza. A verdadeira força do agro moderno não está na supressão dos ecossistemas, mas na integração inteligente com eles.</p>
+                <p>Adotar práticas que respeitam a topografia, o solo e o regime de chuvas de cada região é o que chamamos de alinhar a produção à arquitetura natural do planeta.</p>
+            </div>
+        </section>
+
+        <section id="biomas" class="content-section">
+            <h2>Arquitetura de Biomas</h2>
+            <p>Compreender a <strong>arquitetura de biomas</strong> significa planejar a produção agrícola respeitando as limitações e potencialidades de cada ecossistema (como Cerrado, Caatinga, Mata Atlântica e Amazônia). Proteger as APP (Áreas de Preservação Permanente) e manejar a terra de forma regenerativa garante que o agro continue forte amanhã.</p>
+            
+            <div class="info-cards">
+                <div class="card">
+                    <h3>Preservação Integrada</h3>
+                    <p>Criação de corredores ecológicos que cruzam propriedades produtivas, permitindo o fluxo da fauna e a polinização natural.</p>
+                </div>
+                <div class="card">
+                    <h3>Tecnologia Verde</h3>
+                    <p>Uso de bioinsumos e rotação de culturas para manter o solo vivo e produtivo sem dependência exclusiva de químicos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-section" class="content-section">
+            <h2>Quiz: Você conhece a Arquitetura dos Biomas?</h2>
+            <p>Teste seus conhecimentos sobre o equilíbrio entre a produção agrícola e a sustentabilidade ambiental.</p>
+            
+            <form id="quiz-form">
+                
+                <div class="quiz-step">
+                    <p class="question">1. O que caracteriza o respeito à "arquitetura de biomas" na agricultura?</p>
+                    <label class="radio-option">
+                        <input type="radio" name="q1" value="errado1">
+                        <span>Substituir toda a vegetação nativa por monoculturas de alta tecnologia.</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="q1" value="correto">
+                        <span>Planejar as lavouras integrando as áreas produtivas com a conservação da vegetação nativa local.</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="q1" value="errado2">
+                        <span>Ignorar as características do solo e focar apenas no uso intensivo de irrigação artificial.</span>
+                    </label>
+                </div>
+
+                <div class="quiz-step">
+                    <p class="question">2. Qual prática melhora o solo e respeita a dinâmica natural do meio ambiente?</p>
+                    <label class="radio-option">
+                        <input type="radio" name="q2" value="errado1">
+                        <span>Uso contínuo do mesmo solo sem períodos de descanso ou rotação.</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="q2" value="errado2">
+                        <span>Queimadas controladas anuais para limpeza rápida do terreno.</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="q2" value="correto">
+                        <span>Rotação de culturas e o uso de bioinsumos que preservam a microbiota do solo.</span>
+                    </label>
+                </div>
+
+                <button type="submit" id="btn-submit-quiz">Enviar Respostas</button>
+            </form>
+
+            <div id="quiz-feedback" class="hidden-feedback"></div>
+        </section>
+
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; 2026 - Agro Forte, Futuro Sustentável. Desenvolvido com foco em Biomas e Práticas Regenerativas.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
