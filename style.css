@@ -1,134 +1,274 @@
-/* ==========================================================================
-   1. VARIÁVEIS DE AMBIENTE E CONFIGURAÇÕES DO TEMA
-   ========================================================================== */
+/* --- Variáveis de Cores para Temas (Claro/Escuro) --- */
 :root {
-    --bg-primary: #f4f7f5;
-    --bg-card: #ffffff;
-    --text-main: #2c3e50;
-    --text-muted: #555555;
-    --color-accent: #2e7d32; /* Verde Agro */
-    --color-accent-hover: #1b5e20;
-    --color-border: #e0e0e0;
-    --shadow: 0 4px 6px rgba(0,0,0,0.05);
-    --transition-smooth: all 0.3s ease;
+    --bg-color: #f4f7f5;
+    --card-bg: #ffffff;
+    --text-color: #2c3e50;
+    --primary-color: #27ae60;
+    --primary-hover: #219653;
+    --accent-color: #e67e22;
+    --border-color: #e0e0e0;
 }
 
-/* Variáveis para o Modo Escuro */
 [data-theme="dark"] {
-    --bg-primary: #121212;
-    --bg-card: #1e1e1e;
-    --text-main: #f5f5f5;
-    --text-muted: #b0b0b0;
-    --color-accent: #4caf50;
-    --color-accent-hover: #81c784;
-    --color-border: #333333;
-    --shadow: 0 4px 6px rgba(0,0,0,0.3);
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --primary-color: #2ecc71;
+    --primary-hover: #27ae60;
+    --border-color: #333333;
 }
 
-/* Reset básico */
+/* --- Resets e Estilos Globais --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
-    transition: var(--transition-smooth);
 }
 
-/* ==========================================================================
-   2. LAYOUT COMPONENTES (FLEXBOX)
-   ========================================================================== */
-
-/* Cabeçalho */
-.main-header {
-    background-color: var(--bg-card);
-    border-bottom: 1px solid var(--color-border);
-    padding: 1rem 2rem;
-    transition: var(--transition-smooth);
-}
-
+/* --- Layout Flexbox para Estrutura --- */
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-.main-header h1 {
-    font-size: 1.5rem;
-    color: var(--color-accent);
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Botão Modo Escuro */
-.btn-mode {
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-    border: 1px solid var(--color-border);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+header h1 {
+    font-size: 1.8rem;
+}
+
+/* Botão de Modo Escuro */
+#toggle-dark-mode {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 16px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    transition: var(--transition-smooth);
+    border-radius: 20px;
+    font-weight: bold;
 }
 
-.btn-mode:hover {
-    background-color: var(--color-accent);
-    color: #ffffff;
-    border-color: var(--color-accent);
+#toggle-dark-mode:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: scale(1.05);
 }
 
-/* Navegação */
-.main-nav {
-    background-color: var(--color-accent);
-    padding: 0.5rem 2rem;
+/* --- Menu de Navegação --- */
+nav {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.main-nav ul {
+nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.main-nav a {
-    color: #ffffff;
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--text-color);
     text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    transition: var(--transition-smooth);
+    font-weight: 600;
 }
 
-.main-nav a:hover {
-    background-color: var(--color-accent-hover);
-    border-radius: 4px;
+nav ul li a:hover {
+    color: var(--primary-color);
+    background-color: rgba(39, 174, 96, 0.1);
 }
 
-/* Container de Conteúdo */
-.content-container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+/* --- Conteúdo Principal e Cards --- */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-/* ==========================================================================
-   3. SEÇÕES E CARDS
-   ========================================================================== */
-
-/* Seção de Introdução */
-.info-section {
-    background-color: var(--bg-card);
-    padding: 2rem;
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: var(--shadow);
-    margin-bottom: 2rem;
-    transition: var(--transition-smooth);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.card h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin-top: 5px;
+    border-radius: 20px;
+}
+
+.card p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Imagens Responsivas */
+.image-placeholder img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    max-height: 350px;
+}
+
+/* --- Estilização do Quiz --- */
+.quiz-question {
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: 15px;
+    border-left: 4px solid var(--accent-color);
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+}
+
+[data-theme="dark"] .quiz-question {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.quiz-question h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.quiz-question label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.quiz-question input[type="radio"] {
+    margin-right: 10px;
+    accent-color: var(--primary-color);
+}
+
+/* Botão de Envio do Form */
+#submit-btn {
+    display: block;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#submit-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+#submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Box de Resultado Dinâmico */
+.result-box {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.result-box.success {
+    background-color: rgba(46, 204, 113, 0.2);
+    border: 2px solid #2ecc71;
+    color: #27ae60;
+}
+
+.result-box.error {
+    background-color: rgba(231, 76, 60, 0.2);
+    border: 2px solid #e74c3c;
+    color: #c0392b;
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Rodapé --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+/* --- Animações --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsividade (Media Queries) --- */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li a {
+        padding: 10px;
+    }
+    main {
+        margin: 20px auto;
+    }
+    .card {
+        padding: 20px;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    #submit-btn {
+        font-size: 1rem;
+    }
 }
