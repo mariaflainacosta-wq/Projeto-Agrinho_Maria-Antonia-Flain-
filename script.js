@@ -1,88 +1,87 @@
-/**
- * PROJETO: Agro Forte, Futuro Sustentável
- * SCRIPT: Manipulação dinâmica do Quiz, validações e Modo Escuro.
- */
-
+// Aguarda o carregamento completo do DOM antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // ==========================================================================
-    // 1. GERENCIAMENTO DO MODO ESCURO
-    // ==========================================================================
-    const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
-    const bodyElement = document.body;
-    const modeIcon = toggleDarkModeBtn.querySelector('.icon');
-    const modeText = toggleDarkModeBtn.querySelector('.text');
 
+    // --- Seleção de Elementos do DOM ---
+    const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
+    const quizForm = document.getElementById('quiz-form');
+    const quizResult = document.getElementById('quiz-result');
+
+    // --- Funcionalidade: Modo Escuro ---
+    // Verifica se o usuário já possui uma preferência salva no navegador
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+            toggleDarkModeBtn.textContent = '☀️ Modo Claro';
+        }
+    }
+
+    // Evento de clique para alternar os temas
     toggleDarkModeBtn.addEventListener('click', () => {
-        // Verifica o tema atual e alterna
-        if (bodyElement.getAttribute('data-theme') === 'dark') {
-            bodyElement.removeAttribute('data-theme');
-            modeIcon.textContent = '🌙';
-            modeText.textContent = 'Modo Escuro';
+        let currentTheme = document.documentElement.getAttribute('data-theme');
+        
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            toggleDarkModeBtn.textContent = '🌓 Modo Escuro';
         } else {
-            bodyElement.setAttribute('data-theme', 'dark');
-            modeIcon.textContent = '☀️';
-            modeText.textContent = 'Modo Claro';
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            toggleDarkModeBtn.textContent = '☀️ Modo Claro';
         }
     });
 
-    // ==========================================================================
-    // 2. PROCESSAMENTO E VALIDAÇÃO DO QUIZ
-    // ==========================================================================
-    const quizForm = document.getElementById('quiz-form');
-    const resultBox = document.getElementById('quiz-result');
-
-    // Gabarito oficial do Quiz (6 questões)
-    const correctAnswers = {
-        q1: 'B',
-        q2: 'A',
-        q3: 'C',
-        q4: 'A',
-        q5: 'B',
-        q6: 'A'
-    };
-
+    // --- Funcionalidade: Validação e Processamento do Quiz ---
     quizForm.addEventListener('submit', (event) => {
-        // Impede o recarregamento automático da página
+        // Previne o comportamento padrão de recarregar a página ao enviar o formulário
         event.preventDefault();
 
-        // Coleta de dados utilizando a API FormData do HTML5
-        const formData = new FormData(quizForm);
-        let answeredCount = 0;
+        // Total de perguntas do quiz
+        const totalQuestions = 6;
         let score = 0;
+        let allAnswered = true;
 
-        // Validação simples: verificar se o usuário respondeu todas as 6 perguntas
-        for (let i = 1; i <= 6; i++) {
-            if (formData.has(`q${i}`)) {
-                answeredCount++;
-                // Se a resposta bater com o gabarito, soma ponto
-                if (formData.get(`q${i}`) === correctAnswers[`q${i}`]) {
-                    score++;
-                }
-            }
-        }
-
-        // Exibição de mensagens dinâmicas baseadas na validação e na performance
-        resultBox.classList.remove('hidden', 'success', 'error');
-
-        if (answeredCount < 6) {
-            // Caso falte responder alguma questão (Validação)
-            resultBox.textContent = `⚠️ Atenção: Você respondeu apenas ${answeredCount} de 6 perguntas. Por favor, responda todas antes de enviar!`;
-            resultBox.classList.add('error');
-        } else {
-            // Feedback final dinâmico baseado nos acertos
-            resultBox.classList.add('success');
+        // Loop para validação simples: verificar se todas as perguntas possuem resposta
+        for (let i = 1; i <= totalQuestions; i++) {
+            const checkedOption = document.querySelector(`input[name="q${i}"]:checked`);
             
-            if (score === 6) {
-                resultBox.textContent = `🌱 Excelente! Você acertou todas as ${score} questões. Você entende perfeitamente a Arquitetura de Biomas e a importância do Agro Sustentável!`;
-            } else if (score >= 4) {
-                resultBox.textContent = `👍 Muito bom! Você acertou ${score} de 6 questões. Tem uma ótima base sobre o equilíbrio entre produção e meio ambiente.`;
-            } else {
-                resultBox.textContent = `🌾 Você acertou ${score} de 6 questões. Que tal reler o conteúdo sobre Biomas para aprender um pouco mais sobre práticas sustentáveis?`;
+            if (!checkedOption) {
+                allAnswered = false;
+                break;
+            } else if (checkedOption.value === 'correto') {
+                score++;
             }
         }
 
-        // Rolar suavemente a tela até o container de resultado
-        resultBox.scrollIntoView({ behavior: 'smooth' });
-    });
-});
+        // --- Mensagens Dinâmicas e Interações ---
+        // Torna a div de resultados visível removendo a classe utilitária
+        quizResult.classList.remove('hidden');
+
+        // Se o usuário esqueceu de responder alguma pergunta (Validação)
+        if (!allAnswered) {
+            quizResult.textContent = '⚠️ Por favor, responda a todas as 6 perguntas antes de enviar!';
+            quizResult.className = 'result-box error'; // Aplica estilo visual de erro
+            
+            // Rola a página suavemente até o aviso de erro
+            quizResult.scrollIntoView({ behavior: 'smooth' });
+            return;
+        }
+
+        // Geração da mensagem dinâmica baseada na performance do usuário
+        let feedbackMessage = '';
+        if (score === totalQuestions) {
+            feedbackMessage = `🏆 Excelente! Você acertou todas (${score}/${totalQuestions}). Você entende perfeitamente como a arquitetura dos biomas suporta um agro sustentável!`;
+            quizResult.className = 'result-box success';
+        } else if (score >= 4) {
+            feedbackMessage = `🌱 Muito bom! Você acertou ${score} de ${totalQuestions}. Tem uma ótima noção de equilíbrio ecológico!`;
+            quizResult.className = 'result-box success';
+        } else {
+            feedbackMessage = `📚 Você acertou ${score} de ${totalQuestions}. Que tal reler o conteúdo sobre Arquitetura de Biomas e tentar novamente?`;
+            quizResult.className = 'result-box error';
+        }
+
+        // Insere o texto gerado na div de resultado
+        quizResult.textContent = feedbackMessage;
+
+        // Rola a tela suavemente para exibir o resultado final
+        quizResult.scrollIntoView({
