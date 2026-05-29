@@ -8,14 +8,14 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <h1>BioAgro<span>Sustentável</span></h1>
+    <header class="main-header">
+        <div class="header-container">
+            <h1>Agro Sustentável</h1>
+            <button id="theme-toggle" class="btn-toggle" aria-label="Alternar modo escuro">Modo Escuro</button>
         </div>
-        <button id="toggle-dark-mode" class="btn-mode" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
     </header>
 
-    <nav>
+    <nav class="main-nav">
         <ul>
             <li><a href="#introducao">Introdução</a></li>
             <li><a href="#arquitetura">Arquitetura de Biomas</a></li>
@@ -24,49 +24,46 @@
     </nav>
 
     <main>
-        
-        <section id="introducao" class="card">
-            <h2>Agro Forte, Futuro Sustentável</h2>
-            <p>O grande desafio do século XXI é equilibrar a alta produtividade agrícola com a preservação ambiental. A produção de alimentos não precisa ser inimiga da natureza; através de práticas conscientes, o ecossistema trabalha a favor da lavoura.</p>
-            <div class="image-placeholder">
-                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=1200&q=80" alt="Plantação sustentável integrada à natureza">
+
+        <section id="introducao" class="section-intro">
+            <h2>Agro Forte, Futuro Sustentável: O Equilíbrio Necessário</h2>
+            <div class="content-block">
+                <p>O grande desafio do século XXI não é apenas produzir alimentos, mas fazer isso em total harmonia com os ecossistemas originais. O conceito de "Agro Forte, Futuro Sustentável" baseia-se na premissa de que a segurança alimentar e a conservação ambiental não são caminhos opostos, mas sim dependentes um do outro. Sem um solo rico, sem polinizadores e sem ciclos hidrológicos regulados, a agricultura colapsa. Portanto, proteger o meio ambiente é garantir a longevidade do próprio agronegócio.</p>
+                <p>A transição para modelos agrícolas regenerativos envolve o uso de tecnologia de ponta, monitoramento climático e, acima de tudo, o respeito aos limites da natureza. Ao entendermos as dinâmicas naturais, transformamos lavouras em aliadas do sequestro de carbono, mitigando os impactos das mudanças climáticas globais.</p>
             </div>
         </section>
 
-        <section id="arquitetura" class="card">
-            <h2>Arquitetura de Biomas</h2>
-            <p>A <strong>Arquitetura de Biomas</strong> consiste no mapeamento e respeito às estruturas nativas de cada região (como Cerrado, Amazônia e Caatinga) para planejar o design agrícola. Isso inclui a criação de corredores ecológicos, Sistemas Agroflorestais (SAFs) e a manutenção da cobertura vegetal nativa para proteger o solo e a água.</p>
-            
-            <div class="features">
-                <div class="feature-item">
-                    <h3>Preservação Integrada</h3>
-                    <p>Respeitar as copas das árvores e as raízes profundas de cada bioma evita a erosão e mantém o ciclo hidrológico.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Sistemas Agroflorestais</h3>
-                    <p>Consórcio de culturas agrícolas com árvores nativas, imitando a arquitetura natural da floresta original.</p>
-                </div>
+        <section id="arquitetura" class="section-architecture">
+            <h2>Arquitetura de Biomas: Moldando a Produção Conforme a Natureza</h2>
+            <div class="content-block">
+                <p>A Arquitetura de Biomas é a ciência e a prática de planejar e desenhar sistemas de produção agrícola que mimetizam, respeitam e se integram perfeitamente às estruturas físicas e biológicas de cada bioma específico (como a Amazônia, o Cerrado, a Caatinga ou a Mata Atlântica). Em vez de modificar radicalmente a paisagem para impor uma cultura padrão, a arquitetura de biomas estuda as árvores nativas, a profundidade das raízes regionais, o comportamento hídrico e a fauna local para criar sistemas integrados.</p>
+                <p>Na prática, isso se traduz em Sistemas Agroflorestais (SAF) na Amazônia, onde o manejo da produção convive com a floresta em pé; ou na Integração Lavoura-Pecuária-Floresta (ILPF) no Cerrado, aproveitando a profundidade do solo e criando sombreamento natural para o gado. Trata-se de utilizar a engenharia da própria natureza como infraestrutura verde para otimizar os serviços ecossistêmicos, garantindo alta produtividade com o mínimo de impacto ambiental possível.</p>
             </div>
         </section>
 
-        <section id="quiz-section" class="card">
-            <h2>Quiz: Arquitetura de Biomas & Sustentabilidade</h2>
-            <p>Teste seus conhecimentos sobre como a arquitetura dos nossos biomas se integra à agricultura moderna e sustentável.</p>
+        <section id="quiz-section" class="section-quiz">
+            <h2>Quiz Interativo: Arquitetura de Biomas</h2>
+            <p class="quiz-instruction">Responda às 6 perguntas abaixo para testar seus conhecimentos e veja o ambiente mudar de cor conforme avança!</p>
             
             <div id="quiz-container">
                 </div>
 
-            <div id="quiz-feedback" class="feedback hidden"></div>
+            <div id="quiz-feedback" class="feedback-box hidden">
+                <p id="feedback-message"></p>
+                <button id="next-btn" class="btn-primary">Avançar</button>
+            </div>
 
-            <button id="btn-submit-quiz" class="btn-primary">Enviar Respostas</button>
-            
-            <div id="quiz-result" class="result-box hidden"></div>
+            <div id="quiz-result" class="result-box hidden">
+                <h3>Resultado do seu Desempenho</h3>
+                <p id="result-text"></p>
+                <button id="restart-btn" class="btn-primary">Refazer Quiz</button>
+            </div>
         </section>
 
     </main>
 
-    <footer>
-        <p>&copy; 2026 - Consciência Ambiental e Produção Aliadas. Todos os direitos reservados.</p>
+    <footer class="main-footer">
+        <p>&copy; 2026 - Sustentabilidade e Arquitetura de Biomas. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
