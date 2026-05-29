@@ -3,94 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável: Arquitetura de Biomas</title>
+    <title>Agro Forte, Futuro Sustentável - Arquitetura de Biomas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="main-header">
+    <header>
         <div class="header-container">
-            <h1>Agro Sustentável</h1>
-            <button id="theme-toggle" class="btn-secondary" aria-label="Alternar modo escuro">Ajustar Tema</button>
+            <h1>AgroSustentável</h1>
+            <button id="toggle-dark-mode" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
         </div>
     </header>
 
-    <nav class="main-nav">
+    <nav>
         <ul>
-            <li><a href="#sobre">O Conceito</a></li>
-            <li><a href="#biomas">Arquitetura de Biomas</a></li>
+            <li><a href="#sobre">Sobre o Tema</a></li>
+            <li><a href="#arquitetura">Arquitetura de Biomas</a></li>
             <li><a href="#quiz-section">Desafio Quiz</a></li>
         </ul>
     </nav>
 
-    <main class="main-content">
-
-        <section id="sobre" class="content-section">
-            <h2>Equilíbrio entre Produção e Meio Ambiente</h2>
-            <div class="section-flex">
-                <div class="text-block">
-                    <p>O grande desafio do século XXI é garantir a segurança alimentar global sem esgotar os recursos naturais. O conceito de <strong>"Agro forte, futuro sustentável"</strong> defende que a alta produtividade agrícola e a conservação ambiental não são excludentes, mas sinérgicas.</p>
-                </div>
-                <div class="image-block">
-                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=600&auto=format&fit=crop" alt="Campo agrícola sustentável integrado à natureza" class="responsive-img">
-                </div>
+    <main>
+        
+        <section id="sobre" class="card">
+            <h2>O Equilíbrio é o Futuro</h2>
+            <p>O grande desafio do século XXI é produzir alimentos em larga escala mantendo a integridade dos nossos ecossistemas. O <strong>Agro Forte</strong> não destrói; ele compreende a dinâmica da natureza e se integra a ela, garantindo um futuro sustentável para as próximas gerações.</p>
+            <div class="image-placeholder">
+                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80" alt="Plantação sustentável com árvores nativas ao fundo">
             </div>
         </section>
 
-        <section id="biomas" class="content-section card-bg">
+        <section id="arquitetura" class="card">
             <h2>Arquitetura de Biomas</h2>
-            <p>A <em>Arquitetura de Biomas</em> é a prática de planejar e desenhar sistemas agrícolas que imitam as estruturas, funções e fluxos dos biomas nativos (como a Amazônia, o Cerrado ou a Caatinga). Em vez de destruir a vegetação original, a agricultura se adapta às condições do ecossistema, utilizando técnicas como:</p>
-            <ul class="features-list">
-                <li><strong>Sistemas Agroflorestais:</strong> Consorciação de árvores nativas com culturas agrícolas.</li>
-                <li><strong>Integração Lavoura-Pecuária-Floresta (ILPF):</strong> Otimização do uso da terra integrando diferentes atividades.</li>
-                <li><strong>Corredores Ecológicos:</strong> Conexão de fragmentos florestais para preservar a biodiversidade e polinizadores.</li>
-            </ul>
+            <p>Cada bioma possui uma "arquitetura" única: a disposição das copas das árvores na Amazônia, as raízes profundas e troncos retorcidos do Cerrado, ou a vegetação rasteira dos Pampas. Entender essa engenharia natural permite criar sistemas agroflorestais e técnicas agrícolas que imitam o bioma local, reduzindo a necessidade de defensivos químicos e otimizando o uso da água.</p>
+            <div class="image-placeholder">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="Floresta demonstrando camadas de vegetação">
+            </div>
         </section>
 
-        <section id="quiz-section" class="content-section">
-            <h2>Quiz Interativo: Teste seus Conhecimentos</h2>
-            <p>Descubra o quanto você entende sobre a arquitetura de biomas e o agro sustentável.</p>
-
-            <div id="quiz-auth" class="quiz-box">
-                <h3>Antes de começar, preencha seus dados:</h3>
-                <div class="form-group">
-                    <label for="username">Nome Completo:</label>
-                    <input type="text" id="username" placeholder="Digite seu nome aqui...">
-                    <span id="error-message" class="error-text"></span>
-                </div>
-                <button id="btn-start" class="btn-primary">Iniciar Quiz</button>
-            </div>
-
-            <div id="quiz-container" class="quiz-box hidden">
-                <div class="quiz-header">
-                    <span id="progress-indicator">Pergunta 1 de 6</span>
-                </div>
+        <section id="quiz-section" class="card">
+            <h2>Quiz: Arquitetura de Biomas & Sustentabilidade</h2>
+            <p>Teste seus conhecimentos sobre a estrutura dos biomas brasileiros e a produção sustentável. Responda às 6 perguntas abaixo!</p>
+            
+            <form id="quiz-form">
                 
-                <div id="question-block">
-                    <h3 id="question-text">Texto da Pergunta</h3>
-                    <div id="alternatives-container" class="alternatives-grid">
-                        </div>
+                <div class="quiz-question">
+                    <h3>1. Qual característica arquitetônica do Cerrado ajuda a captar água de lençóis freáticos profundos?</h3>
+                    <label><input type="radio" name="q1" value="incorreto"> Folhas largas e gigantescas.</label>
+                    <label><input type="radio" name="q1" value="correto"> Raízes extremamente profundas e ramificadas.</label>
+                    <label><input type="radio" name="q1" value="incorreto"> Ausência total de sistemas radiculares.</label>
                 </div>
 
-                <div id="feedback-message" class="feedback hidden"></div>
-
-                <div class="quiz-footer">
-                    <button id="btn-next" class="btn-primary hidden">Próxima Pergunta</button>
+                <div class="quiz-question">
+                    <h3>2. Como a arquitetura de estratos (camadas de altura) da Amazônia pode ser imitada na agricultura?</h3>
+                    <label><input type="radio" name="q2" value="correto"> Através de Sistemas Agroflorestais (SAFs), plantando culturas de diferentes tamanhos juntas.</label>
+                    <label><input type="radio" name="q2" value="incorreto"> Através de monoculturas extensivas de soja.</label>
+                    <label><input type="radio" name="q2" value="incorreto"> Removendo todas as árvores para dar espaço a tratores.</label>
                 </div>
-            </div>
 
-            <div id="result-container" class="quiz-box hidden">
-                <h3>Parabéns, <span id="user-display-name"></span>!</h3>
-                <p id="final-score-text">Você acertou 0 de 6 perguntas.</p>
-                <div id="dynamic-reward-msg" class="reward-message"></div>
-                <button id="btn-restart" class="btn-secondary">Refazer Quiz</button>
-            </div>
+                <div class="quiz-question">
+                    <h3>3. A Caatinga possui uma arquitetura adaptada à aridez. Qual é uma modificação comum em suas plantas?</h3>
+                    <label><input type="radio" name="q3" value="incorreto"> Folhas finas e macias que caem a cada hora.</label>
+                    <label><input type="radio" name="q3" value="incorreto"> Crescimento exclusivo em áreas alagadas.</label>
+                    <label><input type="radio" name="q3" value="correto"> Transformação de folhas em espinhos e caules que armazenam água.</label>
+                </div>
 
+                <div class="quiz-question">
+                    <h3>4. O que caracteriza a arquitetura vegetal do bioma Pampa?</h3>
+                    <label><input type="radio" name="q4" value="correto"> Predomínio de vegetação herbácea, gramíneas e poucas árvores retorcidas.</label>
+                    <label><input type="radio" name="q4" value="incorreto"> Florestas densas e fechadas com árvores de 40 metros.</label>
+                    <label><input type="radio" name="q4" value="incorreto"> Vegetação predominantemente composta por manguezais.</label>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>5. Na arquitetura sustentável, as "Matas de Galeria" ou ciliares servem para:</h3>
+                    <label><input type="radio" name="q5" value="incorreto"> Decorar as margens das estradas de terra.</label>
+                    <label><input type="radio" name="q5" value="correto"> Proteger os cursos d'água contra o assoreamento e erosão causados pelo agro.</label>
+                    <label><input type="radio" name="q5" value="incorreto"> Servir de lenha imediata para as indústrias locais.</label>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>6. O que significa o conceito de "Integração Lavoura-Pecuária-Floresta" (ILPF)?</h3>
+                    <label><input type="radio" name="q6" value="incorreto"> Isolar completamente a floresta da produção de alimentos.</label>
+                    <label><input type="radio" name="q6" value="incorreto"> Alternar a produção apenas entre soja e milho sem árvores.</label>
+                    <label><input type="radio" name="q6" value="correto"> Combinar árvores, pastagem e cultivo agrícola na mesma área, otimizando o espaço e o solo.</label>
+                </div>
+
+                <button type="submit" id="submit-btn">Enviar Respostas</button>
+            </form>
+
+            <div id="quiz-result" class="result-box hidden"></div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2026 - Agro Forte & Sustentável. Desenvolvimento focado em Arquitetura de Biomas.</p>
+    <footer>
+        <p>&copy; 2026 - Consciência Ambiental e Agronegócio Sustentável. Desenvolvido para um futuro melhor.</p>
     </footer>
 
     <script src="script.js"></script>
