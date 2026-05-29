@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável - Arquitetura de Biomas</title>
+    <title>Agro Forte, Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <header class="main-header">
         <div class="header-container">
             <h1>Agro Sustentável</h1>
-            <button id="theme-toggle" class="btn-toggle" aria-label="Alternar modo escuro">Modo Escuro</button>
+            <button id="toggle-dark-mode" class="btn-mode" aria-label="Alternar modo escuro">Modo Escuro</button>
         </div>
     </header>
 
@@ -19,51 +19,108 @@
         <ul>
             <li><a href="#introducao">Introdução</a></li>
             <li><a href="#arquitetura">Arquitetura de Biomas</a></li>
-            <li><a href="#quiz-section">Desafio Quiz</a></li>
+            <li><a href="#quiz-section">Quiz Interativo</a></li>
         </ul>
     </nav>
 
-    <main>
+    <main class="content-container">
 
-        <section id="introducao" class="section-intro">
+        <section id="introducao" class="info-section">
             <h2>Agro Forte, Futuro Sustentável: O Equilíbrio Necessário</h2>
-            <div class="content-block">
-                <p>O grande desafio do século XXI não é apenas produzir alimentos, mas fazer isso em total harmonia com os ecossistemas originais. O conceito de "Agro Forte, Futuro Sustentável" baseia-se na premissa de que a segurança alimentar e a conservação ambiental não são caminhos opostos, mas sim dependentes um do outro. Sem um solo rico, sem polinizadores e sem ciclos hidrológicos regulados, a agricultura colapsa. Portanto, proteger o meio ambiente é garantir a longevidade do próprio agronegócio.</p>
-                <p>A transição para modelos agrícolas regenerativos envolve o uso de tecnologia de ponta, monitoramento climático e, acima de tudo, o respeito aos limites da natureza. Ao entendermos as dinâmicas naturais, transformamos lavouras em aliadas do sequestro de carbono, mitigando os impactos das mudanças climáticas globais.</p>
+            <div class="section-content">
+                <p>O grande desafio do século XXI não é apenas produzir alimento, mas fazer isso em harmonia com a preservação dos recursos naturais. A expressão "Agro Forte" não se refere apenas a recordes de exportação ou colheitas massivas, mas sim à resiliência de um setor que aprendeu a usar a tecnologia a favor da ecologia. O futuro sustentável depende diretamente da nossa capacidade de entender que a lavoura e a floresta em pé não são inimigas, mas parceiras vitais.</p>
+                <p>Garantir o equilíbrio entre a produção em larga escala e a conservação do meio ambiente exige a adoção de práticas como a rotação de culturas, o plantio direto, a redução do uso de defensivos químicos e, acima de tudo, o respeito aos limites regenerativos da terra. Quando degradamos o solo ou desregulamos o ciclo das chuvas pelo desmatamento, estamos destruindo a base que sustenta a própria agricultura. Portanto, a sustentabilidade é a única garantia de que haverá um amanhã produtivo.</p>
             </div>
         </section>
 
-        <section id="arquitetura" class="section-architecture">
-            <h2>Arquitetura de Biomas: Moldando a Produção Conforme a Natureza</h2>
-            <div class="content-block">
-                <p>A Arquitetura de Biomas é a ciência e a prática de planejar e desenhar sistemas de produção agrícola que mimetizam, respeitam e se integram perfeitamente às estruturas físicas e biológicas de cada bioma específico (como a Amazônia, o Cerrado, a Caatinga ou a Mata Atlântica). Em vez de modificar radicalmente a paisagem para impor uma cultura padrão, a arquitetura de biomas estuda as árvores nativas, a profundidade das raízes regionais, o comportamento hídrico e a fauna local para criar sistemas integrados.</p>
-                <p>Na prática, isso se traduz em Sistemas Agroflorestais (SAF) na Amazônia, onde o manejo da produção convive com a floresta em pé; ou na Integração Lavoura-Pecuária-Floresta (ILPF) no Cerrado, aproveitando a profundidade do solo e criando sombreamento natural para o gado. Trata-se de utilizar a engenharia da própria natureza como infraestrutura verde para otimizar os serviços ecossistêmicos, garantindo alta produtividade com o mínimo de impacto ambiental possível.</p>
+        <section id="arquitetura" class="info-section alternate-bg">
+            <h2>Arquitetura de Biomas: Modelando a Produção</h2>
+            <div class="section-content">
+                <p>A Arquitetura de Biomas é um conceito inovador que integra o design agrícola às características ecológicas nativas de cada região. Em vez de impor uma monocultura padronizada e agressiva que ignora a paisagem local, a arquitetura de biomas estuda a vegetação, o relevo, a fauna e os fluxos hidrológicos originais para desenhar sistemas produtivos que mimetizam a natureza. É a engenharia ecológica aplicada ao campo.</p>
+                <p>Na prática, isso significa implementar Sistemas Agroflorestais (SAFs), Integração Lavoura-Pecuária-Floresta (ILPF) e corredores ecológicos que conectam fragmentos de mata nativa. Na Amazônia ou no Cerrado, por exemplo, a arquitetura de biomas dita que árvores nativas devem ser mantidas para proteger o solo da erosão, manter a umidade do ar e abrigar polinizadores naturais. Esse respeito à estrutura do bioma cria barreiras naturais contra pragas, reduz a necessidade de irrigação artificial e estoca carbono, transformando propriedades rurais em aliadas no combate às mudanças climáticas.</p>
             </div>
         </section>
 
-        <section id="quiz-section" class="section-quiz">
-            <h2>Quiz Interativo: Arquitetura de Biomas</h2>
-            <p class="quiz-instruction">Responda às 6 perguntas abaixo para testar seus conhecimentos e veja o ambiente mudar de cor conforme avança!</p>
+        <section id="quiz-section" class="quiz-container">
+            <h2>Quiz: Conhecimento Sustentável</h2>
+            <p class="quiz-description">Responda às 6 perguntas abaixo. O ambiente ao redor vai se transformar conforme você avança na jornada!</p>
             
-            <div id="quiz-container">
+            <div id="quiz-feedback" class="feedback-message hidden"></div>
+
+            <form id="agro-quiz">
+                
+                <div class="quiz-step active" data-step="1">
+                    <h3>1. Qual o principal objetivo da Integração Lavoura-Pecuária-Floresta (ILPF)?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> Otimizar o espaço maximizando a produção sem ligar para o solo.</label>
+                        <label><input type="radio" name="q1" value="B"> Diversificar a produção, recuperar áreas degradadas e fixar carbono.</label>
+                        <label><input type="radio" name="q1" value="C"> Substituir completamente a vegetação nativa por árvores exóticas.</label>
+                    </div>
                 </div>
 
-            <div id="quiz-feedback" class="feedback-box hidden">
-                <p id="feedback-message"></p>
-                <button id="next-btn" class="btn-primary">Avançar</button>
-            </div>
+                <div class="quiz-step hidden" data-step="2">
+                    <h3>2. Na arquitetura de biomas, qual a função dos corredores ecológicos?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> Facilitar o trânsito exclusivo de tratores e maquinários agrícolas.</label>
+                        <label><input type="radio" name="q2" value="B"> Isolar os animais silvestres para que não entrem nas plantações.</label>
+                        <label><input type="radio" name="q2" value="C"> Conectar porções de mata isoladas, permitindo o fluxo de genes da fauna e flora.</label>
+                    </div>
+                </div>
 
-            <div id="quiz-result" class="result-box hidden">
-                <h3>Resultado do seu Desempenho</h3>
+                <div class="quiz-step hidden" data-step="3">
+                    <h3>3. O Cerrado é um bioma que sofre muito com a pressão agrícola. Como a arquitetura de biomas ajuda essa região?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> Preservando as raízes profundas da vegetação nativa para manter as caixas d'água subterrâneas.</label>
+                        <label><input type="radio" name="q3" value="B"> Incentivando a irrigação artificial ininterrupta usando rios locais.</label>
+                        <label><input type="radio" name="q3" value="C"> Removendo a vegetação rasteira para dar lugar apenas ao plantio de grãos.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-step hidden" data-step="4">
+                    <h3>4. O que caracteriza um Sistema Agroflorestal (SAF)?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> O plantio exclusivo de árvores para a produção de celulose.</label>
+                        <label><input type="radio" name="q4" value="B"> A produção agrícola combinada com a conservação de árvores e plantas nativas no mesmo espaço.</label>
+                        <label><input type="radio" name="q4" value="C"> Um modelo químico avançado de fertilização do solo arenoso.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-step hidden" data-step="5">
+                    <h3>5. Qual é o impacto direto da perda de polinizadores nativos na agricultura?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> Redução drástica na produtividade e qualidade de frutos e culturas dependentes de polinização.</label>
+                        <label><input type="radio" name="q5" value="B"> Aumento na velocidade de crescimento das plantas pela ausência de insetos.</label>
+                        <label><input type="radio" name="q5" value="C"> Nenhum, pois a tecnologia atual substitui totalmente a polinização natural.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-step hidden" data-step="6">
+                    <h3>6. Como a sustentabilidade no campo pode beneficiar o consumidor final na cidade?</h3>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> Garantindo alimentos mais seguros, livres de excesso de agroquímicos e protegendo o clima global.</label>
+                        <label><input type="radio" name="q6" value="B"> Apenas reduzindo o preço dos produtos industrializados nos mercados.</label>
+                        <label><input type="radio" name="q6" value="C"> Não gera benefícios diretos para as áreas urbanas, apenas rurais.</label>
+                    </div>
+                </div>
+
+                <div class="quiz-controls">
+                    <button type="button" id="btn-prev" class="btn-quiz" disabled>Anterior</button>
+                    <button type="button" id="btn-next" class="btn-quiz">Próximo</button>
+                    <button type="submit" id="btn-submit" class="btn-quiz hidden">Enviar Respostas</button>
+                </div>
+            </form>
+
+            <div id="quiz-result" class="result-card hidden">
+                <h3>Resultado do seu Quiz</h3>
                 <p id="result-text"></p>
-                <button id="restart-btn" class="btn-primary">Refazer Quiz</button>
+                <button type="button" id="btn-restart" class="btn-quiz">Refazer Quiz</button>
             </div>
         </section>
 
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 - Sustentabilidade e Arquitetura de Biomas. Todos os direitos reservados.</p>
+        <p>&copy; 2026 - Agro Forte, Futuro Sustentável. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
