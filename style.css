@@ -1,71 +1,55 @@
 /* ==========================================================================
-   Configurações Globais, Variáveis e Reset
+   1. VARIÁVEIS DE AMBIENTE E CONFIGURAÇÕES DO TEMA
    ========================================================================== */
 :root {
     --bg-primary: #f4f7f5;
     --bg-card: #ffffff;
-    --text-primary: #2c3e50;
-    --text-secondary: #555555;
-    --color-accent: #27ae60;
-    --color-accent-hover: #219653;
-    --header-bg: #1e3d2f;
-    --header-text: #ffffff;
-    --transition-speed: 0.4s;
-    
-    /* Cores dinâmicas para as etapas do meio ambiente (mudança de fundo) */
-    --env-color-1: #e8f5e9; /* Verde Floresta Claro */
-    --env-color-2: #fffde7; /* Cerrado / Dourado Suave */
-    --env-color-3: #e0f7fa; /* Água / Azul sutil */
-    --env-color-4: #f1f8e9; /* Campos / Oliva Claro */
-    --env-color-5: #efebe9; /* Solo / Marrom sutil */
-    --env-color-6: #f3e5f5; /* Biodiversidade / Lilás suave */
+    --text-main: #2c3e50;
+    --text-muted: #555555;
+    --color-accent: #2e7d32; /* Verde Agro */
+    --color-accent-hover: #1b5e20;
+    --color-border: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+    --transition-smooth: all 0.3s ease;
 }
 
-/* Modo Escuro */
-body.dark-mode {
+/* Variáveis para o Modo Escuro */
+[data-theme="dark"] {
     --bg-primary: #121212;
     --bg-card: #1e1e1e;
-    --text-primary: #e0e0e0;
-    --text-secondary: #b0b0b0;
-    --color-accent: #2ecc71;
-    --color-accent-hover: #27ae60;
-    --header-bg: #0d1f16;
-    
-    /* Cores dinâmicas adaptadas para o modo escuro */
-    --env-color-1: #1b3a24;
-    --env-color-2: #3a381b;
-    --env-color-3: #1b353a;
-    --env-color-4: #25381b;
-    --env-color-5: #2e2321;
-    --env-color-6: #2d1b3a;
+    --text-main: #f5f5f5;
+    --text-muted: #b0b0b0;
+    --color-accent: #4caf50;
+    --color-accent-hover: #81c784;
+    --color-border: #333333;
+    --shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-primary);
-    color: var(--text-primary);
-    transition: background-color var(--transition-speed), color var(--transition-speed);
+    color: var(--text-main);
     line-height: 1.6;
+    transition: var(--transition-smooth);
 }
 
 /* ==========================================================================
-   Layout com Flexbox (Header, Nav, Footer)
+   2. LAYOUT COMPONENTES (FLEXBOX)
    ========================================================================== */
+
+/* Cabeçalho */
 .main-header {
-    background-color: var(--header-bg);
-    color: var(--header-text);
-    padding: 1.5rem;
-    transition: background-color var(--transition-speed);
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 2rem;
+    transition: var(--transition-smooth);
 }
 
 .header-container {
@@ -74,15 +58,38 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    width: 100%;
 }
 
+.main-header h1 {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+}
+
+/* Botão Modo Escuro */
+.btn-mode {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.btn-mode:hover {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border-color: var(--color-accent);
+}
+
+/* Navegação */
 .main-nav {
-    background-color: #2c3e50;
-    padding: 0.8rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-color: var(--color-accent);
+    padding: 0.5rem 2rem;
 }
 
 .main-nav ul {
@@ -95,268 +102,33 @@ body {
 .main-nav a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: var(--transition-smooth);
 }
 
 .main-nav a:hover {
-    color: var(--color-accent);
+    background-color: var(--color-accent-hover);
+    border-radius: 4px;
 }
 
-/* Conteúdo centralizado */
+/* Container de Conteúdo */
 .content-container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
 /* ==========================================================================
-   Seções Informativas e Tipografia
+   3. SEÇÕES E CARDS
    ========================================================================== */
+
+/* Seção de Introdução */
 .info-section {
     background-color: var(--bg-card);
-    padding: 2.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: background-color var(--transition-speed);
-}
-
-h2 {
-    color: var(--color-accent);
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    border-bottom: 2px solid rgba(39, 174, 96, 0.2);
-    padding-bottom: 0.5rem;
-}
-
-.section-content p {
-    margin-bottom: 1.2rem;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    text-align: justify;
-}
-
-/* ==========================================================================
-   Módulo do Quiz e Mudanças Dinâmicas de Cores
-   ========================================================================== */
-.quiz-container {
-    background-color: var(--bg-card);
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-    margin-bottom: 3rem;
-    transition: background-color var(--transition-speed);
-}
-
-/* Classes injetadas via JS para mudar a cor de fundo baseado nas etapas */
-.env-step-1 { background-color: var(--env-color-1) !important; }
-.env-step-2 { background-color: var(--env-color-2) !important; }
-.env-step-3 { background-color: var(--env-color-3) !important; }
-.env-step-4 { background-color: var(--env-color-4) !important; }
-.env-step-5 { background-color: var(--env-color-5) !important; }
-.env-step-6 { background-color: var(--env-color-6) !important; }
-
-.quiz-description {
-    margin-bottom: 2rem;
-    font-style: italic;
-    color: var(--text-secondary);
-}
-
-.quiz-step h3 {
-    margin-bottom: 1.2rem;
-    font-size: 1.3rem;
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.options label {
-    background-color: rgba(0, 0, 0, 0.03);
-    padding: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-body.dark-mode .options label {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-.options label:hover {
-    background-color: rgba(39, 174, 96, 0.15);
-    transform: translateX(5px);
-}
-
-/* Controles de Botões e Alinhamento */
-.quiz-controls {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-/* ==========================================================================
-   Componentes de Botão, Efeitos Hover e Transições
-   ========================================================================== */
-.btn-mode {
-    background-color: transparent;
-    color: var(--header-text);
-    border: 2px solid var(--header-text);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-mode:hover {
-    background-color: var(--header-text);
-    color: var(--header-bg);
-}
-
-.btn-quiz {
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s, opacity 0.2s, transform 0.1s;
-}
-
-.btn-quiz:hover:not(:disabled) {
-    background-color: var(--color-accent-hover);
-    transform: translateY(-2px);
-}
-
-.btn-quiz:active:not(:disabled) {
-    transform: translateY(0);
-}
-
-.btn-quiz:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-/* ==========================================================================
-   Mensagens Dinâmicas e Estados Ocultos
-   ========================================================================== */
-.hidden {
-    display: none !important;
-}
-
-.feedback-message {
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    border-radius: 6px;
-    font-weight: bold;
-    text-align: center;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.feedback-message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-.result-card {
-    background-color: rgba(39, 174, 96, 0.1);
-    border: 2px dashed var(--color-accent);
     padding: 2rem;
     border-radius: 8px;
-    text-align: center;
-    margin-top: 1.5rem;
-    animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.result-card h3 {
-    margin-bottom: 1rem;
-    color: var(--color-accent);
-}
-
-.result-card p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Rodapé */
-.main-footer {
-    background-color: #1e3d2f;
-    color: #ffffff;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 4rem;
-    font-size: 0.9rem;
-}
-
-/* ==========================================================================
-   Animações Keyframes
-   ========================================================================== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scaleUp {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* ==========================================================================
-   Responsividade & Media Queries
-   ========================================================================== */
-
-/* Tablets */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-    
-    .main-nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-    }
-    
-    .info-section, .quiz-container {
-        padding: 1.5rem;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
-}
-
-/* Celulares */
-@media (max-width: 480px) {
-    .content-container {
-        margin: 1rem auto;
-    }
-    
-    .quiz-controls {
-        flex-direction: column;
-    }
-    
-    .btn-quiz {
-        width: 100%;
-    }
-    
-    .options label {
-        font-size: 0.95rem;
-        padding: 0.8rem;
-    }
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    transition: var(--transition-smooth);
 }
