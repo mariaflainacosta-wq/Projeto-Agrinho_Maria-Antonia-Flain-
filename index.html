@@ -3,103 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável - Arquitetura de Biomas</title>
+    <title>EcoFuturo 2050</title>
+     <link rel="icon" type="image/png" href="img/ecofuturofavicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="header-container">
-            <h1>AgroSustentável</h1>
-            <button id="toggle-dark-mode" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+        <div class="logo">
+            🌎 EcoFuturo 2050
         </div>
+
+        <button id="modoEscuro">
+            🌙
+        </button>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#sobre">Sobre o Tema</a></li>
-            <li><a href="#arquitetura">Arquitetura de Biomas</a></li>
-            <li><a href="#quiz-section">Desafio Quiz</a></li>
-        </ul>
-    </nav>
+    <section class="hero">
 
-    <main>
-        
-        <section id="sobre" class="card">
-            <h2>O Equilíbrio é o Futuro</h2>
-            <p>O grande desafio do século XXI é produzir alimentos em larga escala mantendo a integridade dos nossos ecossistemas. O <strong>Agro Forte</strong> não destrói; ele compreende a dinâmica da natureza e se integra a ela, garantindo um futuro sustentável para as próximas gerações.</p>
-            <div class="image-placeholder">
-                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80" alt="Plantação sustentável com árvores nativas ao fundo">
+        <img src="img/planeta.png" alt="Planeta Terra">
+
+        <div class="hero-texto">
+
+    <h1>Transformando Ideias em Ação</h1>
+
+    <p>
+        Selecione as ações que você acredita serem importantes para construir um futuro sustentável.
+    </p>
+
+    <div class="acoes-sustentaveis">
+
+        <label>
+            <input type="checkbox" class="acaoCheck" value="15">
+            🌳 Preservar matas ciliares e não desmatar áreas próximas aos rios
+        </label>
+
+        <label>
+            <input type="checkbox" class="acaoCheck" value="15">
+            🚜 Utilizar agricultura sustentável e de precisão
+        </label>
+
+        <label>
+            <input type="checkbox" class="acaoCheck" value="10">
+            ♻️ Separar corretamente os resíduos recicláveis
+        </label>
+
+        <label>
+            <input type="checkbox" class="acaoCheck" value="10">
+            💧 Economizar água e utilizar irrigação inteligente
+        </label>
+
+        <label>
+            <input type="checkbox" class="acaoCheck" value="10">
+            🐝 Proteger abelhas e outros polinizadores
+        </label>
+
+        <label>
+            <input type="checkbox" class="acaoCheck" value="15">
+            🌱 Recuperar áreas degradadas com reflorestamento
+        </label>
+
+        <label>
+            <input type="checkbox" class="acaoCheck" value="10">
+            ☀️ Utilizar fontes de energia renovável
+        </label>
+
+        <label>
+            <input type="checkbox" class="acaoCheck" value="15">
+            🌎 Preservar a biodiversidade local
+        </label>
+
+    </div>
+
+    <button id="iniciar">
+        Transformar o Planeta
+    </button>
+
+</div>
+
+    </section>
+
+    <section class="indicadores">
+
+        <h2>Impacto Positivo</h2>
+
+        <div class="cards-indicadores">
+
+            <div class="card">
+                <h3 id="arvores">0</h3>
+                <p>Árvores Recuperadas</p>
             </div>
-        </section>
 
-        <section id="arquitetura" class="card">
-            <h2>Arquitetura de Biomas</h2>
-            <p>Cada bioma possui uma "arquitetura" única: a disposição das copas das árvores na Amazônia, as raízes profundas e troncos retorcidos do Cerrado, ou a vegetação rasteira dos Pampas. Entender essa engenharia natural permite criar sistemas agroflorestais e técnicas agrícolas que imitam o bioma local, reduzindo a necessidade de defensivos químicos e otimizando o uso da água.</p>
-            <div class="image-placeholder">
-                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="Floresta demonstrando camadas de vegetação">
+            <div class="card">
+                <h3 id="agua">0</h3>
+                <p>Litros de Água Preservados</p>
             </div>
-        </section>
 
-        <section id="quiz-section" class="card">
-            <h2>Quiz: Arquitetura de Biomas & Sustentabilidade</h2>
-            <p>Teste seus conhecimentos sobre a estrutura dos biomas brasileiros e a produção sustentável. Responda às 6 perguntas abaixo!</p>
-            
-            <form id="quiz-form">
-                
-                <div class="quiz-question">
-                    <h3>1. Qual característica arquitetônica do Cerrado ajuda a captar água de lençóis freáticos profundos?</h3>
-                    <label><input type="radio" name="q1" value="incorreto"> Folhas largas e gigantescas.</label>
-                    <label><input type="radio" name="q1" value="correto"> Raízes extremamente profundas e ramificadas.</label>
-                    <label><input type="radio" name="q1" value="incorreto"> Ausência total de sistemas radiculares.</label>
-                </div>
+            <div class="card">
+                <h3 id="especies">0</h3>
+                <p>Espécies Protegidas</p>
+            </div>
 
-                <div class="quiz-question">
-                    <h3>2. Como a arquitetura de estratos (camadas de altura) da Amazônia pode ser imitada na agricultura?</h3>
-                    <label><input type="radio" name="q2" value="correto"> Através de Sistemas Agroflorestais (SAFs), plantando culturas de diferentes tamanhos juntas.</label>
-                    <label><input type="radio" name="q2" value="incorreto"> Através de monoculturas extensivas de soja.</label>
-                    <label><input type="radio" name="q2" value="incorreto"> Removendo todas as árvores para dar espaço a tratores.</label>
-                </div>
+        </div>
 
-                <div class="quiz-question">
-                    <h3>3. A Caatinga possui uma arquitetura adaptada à aridez. Qual é uma modificação comum em suas plantas?</h3>
-                    <label><input type="radio" name="q3" value="incorreto"> Folhas finas e macias que caem a cada hora.</label>
-                    <label><input type="radio" name="q3" value="incorreto"> Crescimento exclusivo em áreas alagadas.</label>
-                    <label><input type="radio" name="q3" value="correto"> Transformação de folhas em espinhos e caules que armazenam água.</label>
-                </div>
+    </section>
 
-                <div class="quiz-question">
-                    <h3>4. O que caracteriza a arquitetura vegetal do bioma Pampa?</h3>
-                    <label><input type="radio" name="q4" value="correto"> Predomínio de vegetação herbácea, gramíneas e poucas árvores retorcidas.</label>
-                    <label><input type="radio" name="q4" value="incorreto"> Florestas densas e fechadas com árvores de 40 metros.</label>
-                    <label><input type="radio" name="q4" value="incorreto"> Vegetação predominantemente composta por manguezais.</label>
-                </div>
+    <section class="ideias">
 
-                <div class="quiz-question">
-                    <h3>5. Na arquitetura sustentável, as "Matas de Galeria" ou ciliares servem para:</h3>
-                    <label><input type="radio" name="q5" value="incorreto"> Decorar as margens das estradas de terra.</label>
-                    <label><input type="radio" name="q5" value="correto"> Proteger os cursos d'água contra o assoreamento e erosão causados pelo agro.</label>
-                    <label><input type="radio" name="q5" value="incorreto"> Servir de lenha imediata para as indústrias locais.</label>
-                </div>
+        <h2>Escolha uma ação sustentável</h2>
 
-                <div class="quiz-question">
-                    <h3>6. O que significa o conceito de "Integração Lavoura-Pecuária-Floresta" (ILPF)?</h3>
-                    <label><input type="radio" name="q6" value="incorreto"> Isolar completamente a floresta da produção de alimentos.</label>
-                    <label><input type="radio" name="q6" value="incorreto"> Alternar a produção apenas entre soja e milho sem árvores.</label>
-                    <label><input type="radio" name="q6" value="correto"> Combinar árvores, pastagem e cultivo agrícola na mesma área, otimizando o espaço e o solo.</label>
-                </div>
+        <div class="grid">
 
-                <button type="submit" id="submit-btn">Enviar Respostas</button>
-            </form>
+            <div class="acao" data-valor="1">
+                <img src="img/reflorestamento.png" alt="">
+                <h3>Reflorestamento</h3>
+            </div>
 
-            <div id="quiz-result" class="result-box hidden"></div>
-        </section>
-    </main>
+            <div class="acao" data-valor="2">
+                <img src="img/agua.jpg" alt="">
+                <h3>Preservação da Água</h3>
+            </div>
+
+            <div class="acao" data-valor="3">
+                <img src="img/polinizadores.jpg" alt="">
+                <h3>Proteção dos Polinizadores</h3>
+            </div>
+
+            <div class="acao" data-valor="4">
+                <img src="img/agricultura.jpg" alt="">
+                <h3>Agricultura Inteligente</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="futuro">
+
+        <h2>Visão do Futuro</h2>
+
+        <img id="cidade" src="img/cidade-futuro.jpg" alt="Cidade Sustentável">
+
+        <p id="mensagem">
+            Clique em uma ação para transformar o planeta.
+        </p>
+
+    </section>
 
     <footer>
-        <p>&copy; 2026 - Consciência Ambiental e Agronegócio Sustentável. Desenvolvido para um futuro melhor.</p>
+
+        <p>
+            Projeto Agrinho 2026
+        </p>
+
+        <p>
+            Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente.
+        </p>
+
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>

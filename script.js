@@ -1,87 +1,118 @@
-// Aguarda o carregamento completo do DOM antes de executar o script
-document.addEventListener('DOMContentLoaded', () => {
+const iniciar = document.getElementById("iniciar");
 
-    // --- Seleção de Elementos do DOM ---
-    const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
-    const quizForm = document.getElementById('quiz-form');
-    const quizResult = document.getElementById('quiz-result');
+const arvores = document.getElementById("arvores");
+const agua = document.getElementById("agua");
+const especies = document.getElementById("especies");
 
-    // --- Funcionalidade: Modo Escuro ---
-    // Verifica se o usuário já possui uma preferência salva no navegador
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') {
-            toggleDarkModeBtn.textContent = '☀️ Modo Claro';
-        }
-    }
+const mensagem = document.getElementById("mensagem");
 
-    // Evento de clique para alternar os temas
-    toggleDarkModeBtn.addEventListener('click', () => {
-        let currentTheme = document.documentElement.getAttribute('data-theme');
-        
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-            toggleDarkModeBtn.textContent = '🌓 Modo Escuro';
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            toggleDarkModeBtn.textContent = '☀️ Modo Claro';
-        }
+const modoEscuro = document.getElementById("modoEscuro");
+
+modoEscuro.addEventListener("click", () => {
+    document.body.classList.toggle("claro");
+});
+
+iniciar.addEventListener("click", () => {
+
+    const escolhas =
+    document.querySelectorAll(".acaoCheck:checked");
+
+    let pontos = 0;
+
+    escolhas.forEach(item => {
+        pontos += Number(item.value);
     });
 
-    // --- Funcionalidade: Validação e Processamento do Quiz ---
-    quizForm.addEventListener('submit', (event) => {
-        // Previne o comportamento padrão de recarregar a página ao enviar o formulário
-        event.preventDefault();
+    const totalArvores = pontos * 1000;
+    const totalAgua = pontos * 5000;
+    const totalEspecies = pontos * 4;
 
-        // Total de perguntas do quiz
-        const totalQuestions = 6;
-        let score = 0;
-        let allAnswered = true;
+    animarContador(arvores, totalArvores);
+    animarContador(agua, totalAgua);
+    animarContador(especies, totalEspecies);
 
-        // Loop para validação simples: verificar se todas as perguntas possuem resposta
-        for (let i = 1; i <= totalQuestions; i++) {
-            const checkedOption = document.querySelector(`input[name="q${i}"]:checked`);
-            
-            if (!checkedOption) {
-                allAnswered = false;
-                break;
-            } else if (checkedOption.value === 'correto') {
-                score++;
-            }
+    if(pontos <= 20){
+
+        mensagem.textContent =
+        "⚠️ Poucas ações sustentáveis foram escolhidas. O planeta ainda enfrenta grandes desafios ambientais.";
+
+    }
+    else if(pontos <= 50){
+
+        mensagem.textContent =
+        "🌱 Você já está contribuindo para um futuro melhor, mas ainda existem oportunidades para ampliar os impactos positivos.";
+
+    }
+    else if(pontos <= 80){
+
+        mensagem.textContent =
+        "🌳 Excelente! Suas escolhas ajudam a preservar recursos naturais e fortalecer a produção sustentável.";
+
+    }
+    else{
+
+        mensagem.textContent =
+        "🌎 Incrível! Você construiu um cenário de equilíbrio entre produção agrícola, preservação ambiental e qualidade de vida para as futuras gerações.";
+
+    }
+
+});
+
+document.querySelectorAll(".acao").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const valor = card.dataset.valor;
+
+        if(valor == 1){
+
+            mensagem.textContent =
+            "Milhares de árvores foram recuperadas e novos corredores ecológicos surgiram.";
+
         }
 
-        // --- Mensagens Dinâmicas e Interações ---
-        // Torna a div de resultados visível removendo a classe utilitária
-        quizResult.classList.remove('hidden');
+        if(valor == 2){
 
-        // Se o usuário esqueceu de responder alguma pergunta (Validação)
-        if (!allAnswered) {
-            quizResult.textContent = '⚠️ Por favor, responda a todas as 6 perguntas antes de enviar!';
-            quizResult.className = 'result-box error'; // Aplica estilo visual de erro
-            
-            // Rola a página suavemente até o aviso de erro
-            quizResult.scrollIntoView({ behavior: 'smooth' });
-            return;
+            mensagem.textContent =
+            "A tecnologia reduziu desperdícios e preservou milhões de litros de água.";
+
         }
 
-        // Geração da mensagem dinâmica baseada na performance do usuário
-        let feedbackMessage = '';
-        if (score === totalQuestions) {
-            feedbackMessage = `🏆 Excelente! Você acertou todas (${score}/${totalQuestions}). Você entende perfeitamente como a arquitetura dos biomas suporta um agro sustentável!`;
-            quizResult.className = 'result-box success';
-        } else if (score >= 4) {
-            feedbackMessage = `🌱 Muito bom! Você acertou ${score} de ${totalQuestions}. Tem uma ótima noção de equilíbrio ecológico!`;
-            quizResult.className = 'result-box success';
-        } else {
-            feedbackMessage = `📚 Você acertou ${score} de ${totalQuestions}. Que tal reler o conteúdo sobre Arquitetura de Biomas e tentar novamente?`;
-            quizResult.className = 'result-box error';
+        if(valor == 3){
+
+            mensagem.textContent =
+            "Abelhas e outros polinizadores voltaram a prosperar.";
+
         }
 
-        // Insere o texto gerado na div de resultado
-        quizResult.textContent = feedbackMessage;
+        if(valor == 4){
 
-        // Rola a tela suavemente para exibir o resultado final
-        quizResult.scrollIntoView({
+            mensagem.textContent =
+            "A agricultura inteligente aumentou a produção sem ampliar áreas de cultivo.";
+
+        }
+
+    });
+
+});
+
+function animarContador(elemento, destino){
+
+    let atual = 0;
+
+    const intervalo = setInterval(() => {
+
+        atual += Math.ceil(destino / 100);
+
+        if(atual >= destino){
+
+            atual = destino;
+            clearInterval(intervalo);
+        }
+
+        elemento.textContent =
+        atual.toLocaleString('pt-BR');
+
+    },20);
+
+}
